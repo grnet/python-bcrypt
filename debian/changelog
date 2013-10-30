@@ -1,4 +1,4 @@
-python-bcrypt (0.4-1grnet) quantal; urgency=low
+python-bcrypt (0.4-1grnet) wheezy-helper; urgency=low
 
   * New upstream release.
 
