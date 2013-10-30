@@ -1,0 +1,54 @@
+.TH PYTHON-BCRYPT 1 "December 22, 2007"
+.SH "NAME"
+python-bcrypt \- a module to implement OpenBSD's Blowfish password hash algorithm
+.PP
+This manual page was written for the \fBDebian\fP distribution
+because the original program does not have a manual page.
+.PP
+python-bcrypt is a Python module implementating the OpenBSD Blowfish password
+hashing algorithm, as described in "A Future-Adaptable Password Scheme" by
+Niels Provos and David Mazieres: http://www.openbsd.org/papers/bcrypt-paper.ps
+.PP
+This system hashes passwords using a version of Bruce Schneier's Blowfish
+block cipher with modifications designed to raise the cost of off-line
+password cracking. The computation cost of the algorithm is parametised, so it
+can be increased as computers get faster.
+.PP
+A simple example demonstrates most of the features:
+
+	import bcrypt
+
+	# Hash a password for the first time
+.br
+	hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+.br
+
+	# gensalt's log_rounds parameter determines the complexity
+.br
+	# the work factor is 2**log_rounds, and the default is 12
+.br
+	hashed = bcrypt.hashpw(password, bcrypt.gensalt(10))
+
+	# Check that an unencrypted password matches one that has
+.br
+	# previously been hashed
+.br
+	if bcrypt.hashpw(plaintext, hashed) == hashed:
+.br
+		print "It matches"
+.br
+	else:
+.br
+		print "It does not match"
+
+.SH "AUTHOR"
+python-bcrypt was written by Damien Miller <djm@mindrot.org>
+.PP
+This manual page was written by Kevin Coyner <kcoyner@debian.org> for the
+\fBDebian\fP system (but may be used by others).  Permission is granted to
+copy, distribute and/or modify this document under the terms of the GNU
+General Public License, Version 2 any later version published by the Free
+Software Foundation.
+.PP
+On Debian systems, the complete text of the GNU General Public License can be
+found in /usr/share/common\-licenses/GPL.

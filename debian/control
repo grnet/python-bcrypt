@@ -1,0 +1,23 @@
+Source: python-bcrypt
+Section: python
+Priority: extra
+Maintainer: Nikos Skalkotos <skalkoto@grnet.gr>
+Uploaders: Nikos Skalkotos <skalkoto@grnet.gr>
+Build-Depends: debhelper (>= 5), python-all-dev, python-support (>= 0.6)
+Homepage: http://www.mindrot.org/projects/py-bcrypt/
+Standards-Version: 3.9.3
+
+Package: python-bcrypt
+Architecture: any
+Depends: ${python:Depends}, ${misc:Depends}, ${shlibs:Depends}
+XB-Python-Version: ${python:Versions}
+Description: implementation of OpenBSD's Blowfish password hash algorithm
+ py-bcrypt is a Python module implementating the OpenBSD Blowfish password
+ hashing algorithm, as described in "A Future-Adaptable Password Scheme" by
+ Niels Provos and David Mazieres:
+ http://www.openbsd.org/papers/bcrypt-paper.ps
+ .
+ This module hashes passwords using a version of Bruce Schneier's Blowfish
+ block cipher with modifications designed to raise the cost of off-line
+ password cracking. The computation cost of the algorithm is parametised, so
+ it can be increased as computers get faster.
